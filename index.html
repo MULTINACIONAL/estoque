@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nacional Estoque</title> 
+    <link href="styles.css" rel="stylesheet">
+    <script>
+        // Função para atualizar a data e hora a cada segundo
+        function updateDateTime() {
+            const now = new Date();
+            
+            // Formatar data atual como dd/mm/yyyy
+            const date = now.toLocaleDateString('pt-BR');
+            
+            // Formatar hora atual como hh:mm:ss
+            const time = now.toLocaleTimeString('pt-BR');
+            
+            // Atualizar data e hora na página
+            document.getElementById('currentDateTime').value = date; // Data no campo de input
+            document.getElementById('currentClock').textContent = time; // Hora no span
+        }
+
+        window.onload = function() {
+            updateDateTime(); // Atualiza imediatamente quando a página carrega
+            setInterval(updateDateTime, 1000); // Atualiza a cada segundo
+        };
+    </script>
+</head>
+<body>
+        
+    <form id="dataForm" method="POST" action="processar.php">
+        <center>
+            <p>
+                <br>DATA:<br>
+                <input type="text" id="currentDateTime" name="DATA" readonly>
+                <!-- Exibe a data atual -->
+                <br><strong>Hora Atual:</strong> <span id="currentClock"></span>
+            </p>
+        </center>
+        
+        <center><strong>ESTOQUE - REPOSIÇÃO</strong></center>
+
+        <p><strong>Nome:</strong></p>
+        <!-- Nome -->
+        <select name="NOME_USUARIO" required>
+            <option> - </option>
+            <option> VITORTI </option>
+            <option> ADRIANODM </option>
+            <option> ADSONPRC </option>
+            <option> ALANPRC </option>
+            <option> CARLOSPRC </option>
+            <option> CELSOPRC </option>
+            <option> DANIELIAS </option>
+            <option> ELIANAPRC </option>
+            <option> EMERSONS01 </option>
+            <option> ESTELMOFL </option>
+            <option> JOAOCWB </option>
+            <option> JOAOPRC </option>
+            <option> JOAOAF </option>
+            <option> JULIANOCWB </option>
+            <option> LUCASHD </option>
+            <option> LUCASPRC </option>
+            <option> LUIZPR_CE </option>
+            <option> MATTHEUSVS </option>
+            <option> MATHEUSGO </option>
+            <option> MAXH </option>
+            <option> PABLOHS </option>
+            <option> PALMIRACOE </option>
+            <option> RAPHAELPRC </option>
+            <option> RENANCF </option>
+            <option> RENEPRC-COE </option>
+            <option> RICARDOPRC </option>
+            <option> SAMUELQC </option>
+            <option> VICTORHM </option>
+            <option> VINICIUSMO </option>
+            <option> TACYANEC </option>
+            <option> RICARDOI </option>
+            <option> BRYANWP </option>
+        </select>
+
+        <p><strong>SETOR:</strong></p>
+        <select name="SETOR" required>
+            <option>-</option>
+            <option>MESA 01</option>
+            <option>MESA 02</option>
+            <option>MESA 03</option>
+            <option>MESA 04</option>
+            <option>MESA 05</option>
+            <option>MESA 06</option>
+            <option>B/C</option>
+            <option>D/E</option>
+            <option>E/F FUNDO</option>
+            <option>G/H</option>
+            <option>I/J</option>
+            <option>CORAL</option>
+            <option>FRACIONAMENTO</option>
+            <option> RECEBIMENTO </option>
+            <option>EXPEDIÇÃO</option>
+            <option>TI</option>
+        </select>
+
+        <p><strong>PRODUTO:</strong></p>
+        <select name="PRODUTO" required>
+            <option>-</option>
+            <option>BOBINA</option>
+            <option>BOBINA PICOTADA</option>
+            <option>CAIXAS NOVAS</option>
+            <option>CAIXAS USADAS</option>
+            <option>ETIQUETA BRANCA</option>
+            <option>ETIQUETA AZUL</option>
+            <option>ETIQUETA AMARELA</option>
+            <option> ETIQUETA COUCHE </option>
+            <option>ETIQUETA LARANJA</option>
+            <option> ETIQUETA VERDE </option>
+            <option>FITA DE ARQUIA</option>
+            <option>FITA LOGO</option>
+            <option>FITA TRANSPARENTE</option>
+            <option>RIBBON</option>
+            <option>STRETCH PLASTICO</option>
+        </select>
+
+        <p><strong>QUANTIDADE:</strong></p>
+        <input type="text" name="QUANTIDADE" required>
+
+        <hr>
+        <br>
+        <button type="submit" id="saveButton">Salvar arquivo</button>
+    </form>
+
+    <script src="./script.js"></script>
+</body>
+</html>
